@@ -21,14 +21,12 @@ int main() {
     char buffer[BUFFER_SIZE] = {0};
     char buf[BUFFER_SIZE] = {0};
 	int bytes = 0;
-
-    // Initialize Winsock
+	
     if (WSAStartup(MAKEWORD(2,2), &wsa) != 0) {
         printf("Failed. Error Code : %d", WSAGetLastError());
         return 1;
     }
 
-    // Create socket
     if ((client_socket = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) {
         printf("Could not create socket : %d", WSAGetLastError());
     }
