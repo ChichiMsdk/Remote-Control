@@ -10,7 +10,8 @@
 #define PORT 3490
 #define BUFFER_SIZE 1024
 
-int main() {
+int main() 
+{
     WSADATA wsa;
     SOCKET server_fd, new_socket;
 	int valread = 0;
@@ -44,11 +45,13 @@ int main() {
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(PORT);
-    if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
+    if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0)
+	{
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 3) < 0) {
+    if (listen(server_fd, 3) < 0) 
+	{
         perror("listen");
         exit(EXIT_FAILURE);
     }
@@ -58,7 +61,8 @@ int main() {
         exit(EXIT_FAILURE);
     }
 	printf("Waiting bytes to receive..\n");
-    while (1) {
+    while (1)
+	{
         valread = recv(new_socket, buffer, BUFFER_SIZE, 0);
 		int tmp = valread;
  		buffer[tmp] = 0;
