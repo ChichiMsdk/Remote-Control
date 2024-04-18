@@ -15,6 +15,9 @@
 #define SERVER_IP "127.0.0.1"
 
 int main() {
+	unsigned int width = 0, height = 0;
+	width = (int)GetSystemMetrics(SM_CXSCREEN);
+    height = (int)GetSystemMetrics(SM_CYSCREEN);
     WSADATA wsa;
     SOCKET client_socket;
     struct sockaddr_in server_addr;

@@ -13,6 +13,12 @@ int main(int argc, char *argv[])
 {
 	CGEventRef event;
 	CGPoint mouseLocation;
+	CGDirectDisplayID mainDisplayId;
+	unsigned int width = 0, height = 0;
+
+    width = CGDisplayPixelsWide(mainDisplayId);
+    height = CGDisplayPixelsHigh(mainDisplayId);
+	printf("w: %d, h: %d\n", width, height);
 
 	struct addrinfo hints, *res;
 	int sockfd, status;
